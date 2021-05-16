@@ -5,9 +5,11 @@ base:
 
 data_source:
   training_source: Training_Batch_Files
+  null_dir: data/null_data/null_data.csv
+  balanced_sampled_data: data/after_handling_imbalance/sample_data.csv
 
 load_data:
-  raw_dataset_csv: Training_Batch_files
+  good_data_csv: data/processed/good_data.csv
 
 split_data:
   test_size: 0.2
