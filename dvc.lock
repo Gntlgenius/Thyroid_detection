@@ -1,0 +1,44 @@
+schema: '2.0'
+stages:
+  process_and_load_data:
+    cmd: python src/load_and_save_good_data.py  --config=params.yaml
+    deps:
+    - path: Training_Batch_Files
+      md5: f745d5af7796faccdd4b0c226a7f054f.dir
+      size: 361560
+      nfiles: 23
+    - path: src/data_processing.py
+      md5: 6c6a5b72433e5d67851126c716995d47
+      size: 2581
+    - path: src/get_data.py
+      md5: 9d30a230c3d04c870e6f03da3febed21
+      size: 1476
+    - path: src/load_and_save_good_data.py
+      md5: 91152748cb33910fe6b9ebd6c5b30324
+      size: 1184
+    outs:
+    - path: data/after_handling_imbalance/sample_data.csv
+      md5: 28162a36929b1f0f0d94cf1af1126e2d
+      size: 40
+    - path: data/null_data/null_data.csv
+      md5: fbf6aad788fe323aee742f83c0dc2d70
+      size: 64
+    - path: data/processed/good_data.csv
+      md5: 6635ce910db779f04ca1171cc88a4cfb
+      size: 1895553
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/processed/good_data.csv
+      md5: 6635ce910db779f04ca1171cc88a4cfb
+      size: 1895553
+    - path: src/split_data.py
+      md5: bf6c2a3add59acaa7037edd679907711
+      size: 961
+    outs:
+    - path: data/processed/test_data.csv
+      md5: 3f26632748ad347f96f4c59625b7f7a0
+      size: 379437
+    - path: data/processed/train_data.csv
+      md5: 649fc80879745d28683776f2e8fe58fb
+      size: 1516436
