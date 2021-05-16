@@ -1,0 +1,13 @@
+base:
+  project: Thyroid_detection-project
+  random_state: 42
+  target_col: Class
+
+data_source:
+  training_source: Training_Batch_Files
+
+load_data:
+  raw_dataset_csv: Training_Batch_files
+
+split_data:
+  test_size: 0.2
