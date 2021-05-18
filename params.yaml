@@ -1,6 +1,6 @@
 base:
   project: Thyroid_detection-project
-  random_state: 42
+  random_state: 355
   target_col: Class
 
 data_source:
@@ -15,3 +15,17 @@ split_data:
   train_path: data/processed/train_data.csv
   test_path: data/processed/test_data.csv
   test_size: 0.2
+
+estimators:
+  XGBClassifier:
+    params:
+      max_depth: 6
+      learning_rate: 0.300000012
+      n_estimators: 100
+      n_jobs: 4
+
+reports:
+  params: reports/params.json
+  scores: reports/scores.json
+
+model_dir: saved_models
