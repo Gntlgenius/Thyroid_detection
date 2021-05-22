@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}
+WineQuality
+{% endblock title %}
+
+
+{% block custom_css %}
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock custom_css %}
+
+
+{% block body %}
+<!-- nav bar -->
+
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="/">WineQualityPrediction with MLflow and DVC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/Gntlgenius/mlops_winequality">source code</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <!-- nav bar ends -->
+
+    <div class="container-fluid masthead">
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form method="POST">
+                        <!-- Input block-->
+                        <div class="form-group">
+                            <label for="translation">
+                                <blockquote class="blockquote">
+                                    <p class="mb-2">Enter the details as indicated:</p>
+                                </blockquote>
+                            </label>
+
+                            
+                            <textarea class="form-control" name="age" rows="1"
+                                placeholder="age expected range 1.0 to 455.0"></textarea>
+                             <textarea class="form-control" name="sex" rows="1"
+                                placeholder="sex expected input Female = 0, Male = 1"></textarea>
+                            <textarea class="form-control" name="on_thyroxine" rows="1"
+                                placeholder="On Thyroxine expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="query_on_thyroxine" rows="1"
+                                placeholder="Query on Thyroxine expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="on_antithyroid_medication" rows="1" 
+                                placeholder="on antithyroid medication expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="sick" rows="1"
+                                placeholder="sick expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="pregnant" rows="1"
+                                placeholder="pregnant expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="thyroid_surgery" rows="1" 
+                                placeholder="thyroid surgery expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="I131_treatment" rows="1" 
+                                placeholder="I131 treatment expected input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="psych" rows="1" 
+                                placeholder="psych input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="TSH" rows="1" 
+                                placeholder="TSH expected range 0 to 530"></textarea>
+                            <textarea class="form-control" name="T3" rows="1" 
+                                placeholder="T3 expected range 0 to 11.0"></textarea>
+                            <textarea class="form-control" name="TT4" rows="1" 
+                                placeholder="TT4 expected range 2.0 to 430.0"></textarea>
+                            <textarea class="form-control" name="T4U" rows="1" 
+                                placeholder="T4U expected range 0 to 2.0"></textarea>
+                            <textarea class="form-control" name="FTI" rows="1" 
+                                placeholder="FTI expected range 2.0 to 395"></textarea>
+                            <textarea class="form-control" name="query_hypothyroid" rows="1" 
+                                placeholder="query hypothyroid input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="query_hyperthyroid" rows="1" 
+                                placeholder="query hyperthyroid input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="lithium" rows="1" 
+                                placeholder="lithium input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="goitre" rows="1" 
+                                placeholder="goitre input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="tumor" rows="1" 
+                                placeholder="tumor input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="hypopituitary" rows="1" 
+                                placeholder="hypopituitary input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="referral_source_STMW" rows="1" 
+                                placeholder="referral_source_STMW input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="referral_source_SVHC" rows="1" 
+                                placeholder="referral_source_SVHC input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="referral_source_SVHD" rows="1" 
+                                placeholder="referral_source_SVHD input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="referral_source_SVI" rows="1" 
+                                placeholder="referral_source_SVI input  False = 0, True = 1"></textarea>
+                            <textarea class="form-control" name="referral_source_other" rows="1" 
+                                placeholder="referral_source_other input  False = 0, True = 1"></textarea>
+
+                        </div>
+                        
+                        <!-- Select output language here. -->
+                        <div class="form-group">
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Predict</button></br>
+                        </br>
+                    </form>
+                    <!-- Translated text returned by the Translate API is rendered here. -->
+                </div>
+                <div class="col">
+                    <form>
+                        <div class="form-group">
+                            <label for="translation-result">
+
+                                <blockquote class="blockquote">
+                                    <p class="mb-2">Prediction:</p>
+                                </blockquote>
+
+                            </label>
+                            <textarea readonly class="form-control" id="exTextarea" rows="5">{{ response }}</textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% endblock body %}
+
+        {% block custom_js %}
+        <!-- Custom JS -->
+        <script src="{{ url_for('static', filename='script/index.js') }}"></script>
+        {% endblock custom_js %}

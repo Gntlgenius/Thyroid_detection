@@ -1,0 +1,54 @@
+{
+    "age":  68.0,
+
+    "sex":  0.0,
+
+    "on_thyroxine": 0.0,
+ 
+    "query_on_thyroxine": 0.0,
+ 
+    "on_antithyroid_medication": 0.0,
+
+    "sick":  0.0,
+
+    "pregnant": 0.0,
+
+    "thyroid_surgery": 0.0,
+    
+    "I131_treatment": 0.0,
+    
+    "psych":  0.0,
+    
+    "TSH":  19.0,
+    
+    "T3":  2.0,
+    
+    "TT4":  93.0,
+    
+    "T4U":  1.0,
+    
+    "FTI":  77.0,
+
+    "query_hypothyroid": 1.0,
+    
+    "query_hyperthyroid": 0.0,
+    
+    "lithium":  0.0,
+    
+    "goitre":  0.0,
+    
+    "tumor":  0.0,
+    
+    "hypopituitary": 0.0,
+    
+    "referral_source_STMW": 0.0,
+    
+    "referral_source_SVHC": 0.0,
+    
+    "referral_source_SVHD": 0.0,
+    
+    "referral_source_SVI": 0.0,
+    
+    "referral_source_other": 1.0
+
+}

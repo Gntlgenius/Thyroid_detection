@@ -46,16 +46,16 @@ def training_evaluation(config_path):
     train_data = pd.read_csv(train_path, sep=",")
     test_data = pd.read_csv(test_path, sep=",")
 
-    X_train = train_data.drop(target_col, axis=1)
-    y_train = train_data[target_col]
+    X_train = np.array(train_data.drop(target_col, axis=1))
+    y_train = np.array(train_data[target_col])
 
-    X_test = test_data.drop(target_col, axis=1)
-    y_test = test_data[target_col]
+    X_test = np.array(test_data.drop(target_col, axis=1))
+    y_test = np.array(test_data[target_col])
 
-    model =  XGBClassifier(max_depth=max_depth, learning_rate=learning_rate, n_estimators=n_estimators, n_jobs=n_jobs)
-    model.fit(X_train, y_train)
+    XGB =  XGBClassifier(max_depth=max_depth, learning_rate=learning_rate, n_estimators=n_estimators, n_jobs=n_jobs)
+    XGB.fit(X_train, y_train)
 
-    y_pred = model.predict(X_test)
+    y_pred = XGB.predict(X_test)
 
     scores = evaluate_metrics(y_test , y_pred)
     with open(scores_file, "w") as f:
@@ -80,7 +80,7 @@ def training_evaluation(config_path):
     os.makedirs(model_dir, exist_ok=True)
     model_path = os.path.join(model_dir, "model.joblib")
 
-    joblib.dump(model, model_path)
+    joblib.dump(XGB, model_path)
 
     
 

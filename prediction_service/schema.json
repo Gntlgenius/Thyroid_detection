@@ -1,0 +1,106 @@
+{
+    "age": {
+        "min": 1.0,
+        "max": 455.0
+    },
+    "sex": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "on_thyroxine": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "query_on_thyroxine": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "on_antithyroid_medication": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "sick": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "pregnant": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "thyroid_surgery": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "I131_treatment": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "psych": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "TSH": {
+        "min": 0.0,
+        "max": 530.0
+    },
+    "T3": {
+        "min": 0.0,
+        "max": 11.0
+    },
+    "TT4": {
+        "min": 2.0,
+        "max": 430.0
+    },
+    "T4U": {
+        "min": 0.0,
+        "max": 2.0
+    },
+    "FTI": {
+        "min": 2.0,
+        "max": 395.0
+    },
+    "query_hypothyroid": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "query_hyperthyroid": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "lithium": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "goitre": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "tumor": {
+        "min": 0,
+        "max": 1.0
+    },
+    "hypopituitary": {
+        "min": 0,
+        "max": 1.0
+    },
+    "referral_source_STMW": {
+        "min": 0,
+        "max": 1.0
+    },
+    "referral_source_SVHC": {
+        "min": 0,
+        "max": 1.0
+    },
+    "referral_source_SVHD": {
+        "min": 0,
+        "max": 1.0
+    },
+    "referral_source_SVI": {
+        "min": 0.0,
+        "max": 1.0
+    },
+    "referral_source_other": {
+        "min": 0,
+        "max": 1.0
+    } 
+}
