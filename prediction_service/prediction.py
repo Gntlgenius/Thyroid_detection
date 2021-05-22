@@ -4,7 +4,6 @@ import joblib
 import numpy as np
 import json
 
-
 params_path ="params.yaml"
 schema_path = os.path.join("prediction_service", "schema.json")
 model_dir = os.path.join("saved_models", "model.joblib")
@@ -37,6 +36,7 @@ def predicter(data):
     model_path = model_dir
     model = joblib.load(model_path)
     prediction = model.predict(data)
+    prediction= prediction[0]
 
     try:
         if 0 <= prediction <= 3:
