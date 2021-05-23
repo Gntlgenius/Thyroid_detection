@@ -42,3 +42,31 @@ stages:
     - path: data/processed/train_data.csv
       md5: 649fc80879745d28683776f2e8fe58fb
       size: 1516436
+  train_evaluate:
+    cmd: python src/train_and_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/test_data.csv
+      md5: 3f26632748ad347f96f4c59625b7f7a0
+      size: 379437
+    - path: data/processed/train_data.csv
+      md5: 649fc80879745d28683776f2e8fe58fb
+      size: 1516436
+    - path: src/train_and_evaluate.py
+      md5: 15fae0c572ab4ab5171c512c4d731978
+      size: 2797
+    params:
+      params.yaml:
+        estimators.XGBClassifier.params.learning_rate: 0.300000012
+        estimators.XGBClassifier.params.max_depth: 6
+        estimators.XGBClassifier.params.n_estimators: 100
+        estimators.XGBClassifier.params.n_jobs: 4
+    outs:
+    - path: reports/params.json
+      md5: e8bf6b981aae6485c9babdade1186c65
+      size: 103
+    - path: reports/scores.json
+      md5: 7ec8a0b827c635c2f667bc9c21ca8cb1
+      size: 153
+    - path: saved_models/model.joblib
+      md5: c0663aabb811dd4bb5cda2af50693360
+      size: 337679
