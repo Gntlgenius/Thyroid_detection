@@ -128,13 +128,21 @@ input_data = {
     }
 }
 
-outcomes = ['Detection of Possible Compensated Hypothyroid','Negative','Detection of Possible Primary Hypothyroid','Detection of Possible Secondary Hypothyroid']
+outcomes = ('Detection of Possible Compensated Hypothyroid','Negative','Detection of Possible Primary Hypothyroid','Detection of Possible Secondary Hypothyroid')
 
-# def test_form_response_correct_range(data=input_data["correct_range_form"]):
-#     res = form_response(data)
-#     if res:
-#         assert res
+# def test_form_response_correct_range():
+#     ds = input_data["correct_range_form"]
+#     result = form_response(ds)
+#     assert result == outcomes[2]
+
+#     # if result in outcomes:
+#     #     assert result
     
+    
+
+        
+    
+
 
 def test_api_response_correct_range(data=input_data["correct_range"]):
     res = api_response(data)
