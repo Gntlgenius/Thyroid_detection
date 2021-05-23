@@ -25,15 +25,15 @@
     
     
 #     runs = mlflow.search_runs(experiment_ids=3)
-#     lowest = runs["metrics.F1_Score"].sort_values(ascending=True)[0]
-#     lowest_run_id = runs[runs["metrics.F1_Score"] == lowest]["run_id"][0]
+#     highest = runs["Metrics.f1_Score_"].sort_values(ascending=False)[0]
+#     highest_run_id = runs[runs["Metrics.f1_Score_"] == highest]["run_id"][0]
     
 
 #     client = MlflowClient()
 #     for mv in client.search_model_versions(f"name='{model_name}'"):
 #         mv = dict(mv)
         
-#         if mv["run_id"] == lowest_run_id:
+#         if mv["run_id"] == highest_run_id:
 #             current_version = mv["version"]
 #             logged_model = mv["source"]
 #             pprint(mv, indent=4)

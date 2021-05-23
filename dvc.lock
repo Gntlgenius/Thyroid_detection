@@ -52,8 +52,8 @@ stages:
       md5: 649fc80879745d28683776f2e8fe58fb
       size: 1516436
     - path: src/train_and_evaluate.py
-      md5: c3bc504e950357c631ca50fd3ab0c76a
-      size: 4442
+      md5: df6712bc8614c2f1de28c5327093784d
+      size: 4446
     params:
       params.yaml:
         estimators.DecisionTree.params.criterion: entropy

@@ -110,10 +110,10 @@ def training_evaluation(config_path):
         mlflow.log_param("max_depth", max_depth)
         mlflow.log_param("min_samples_leaf", min_samples_leaf)
         mlflow.log_param("criterion", criterion)
-        mlflow.log_metric("Accuracy", scores['Accuracy_'])
-        mlflow.log_metric("Precision", scores['precision_'])
-        mlflow.log_metric("Recall", scores['recall_'])
-        mlflow.log_metric("F1_Score", scores['f1_Score_'])
+        mlflow.log_metric("Accuracy_", scores['Accuracy_'])
+        mlflow.log_metric("precision_", scores['precision_'])
+        mlflow.log_metric("recall_", scores['recall_'])
+        mlflow.log_metric("f1_Score_", scores['f1_Score_'])
       
 
         tracking_url_type_store = urlparse(mlflow.get_artifact_uri()).scheme
