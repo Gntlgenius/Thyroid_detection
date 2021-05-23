@@ -12,6 +12,9 @@ from get_data import read_params
 import argparse
 import joblib
 import json
+from sklearn.tree import DecisionTreeClassifier
+
+
 
 
 def evaluate_metrics(y_test, y_pred):
@@ -52,10 +55,11 @@ def training_evaluation(config_path):
     X_test = np.array(test_data.drop(target_col, axis=1))
     y_test = np.array(test_data[target_col])
 
-    XGB =  XGBClassifier(max_depth=max_depth, learning_rate=learning_rate, n_estimators=n_estimators, n_jobs=n_jobs)
-    XGB.fit(X_train, y_train)
+    #XGB =  XGBClassifier(max_depth=max_depth, learning_rate=learning_rate, n_estimators=n_estimators, n_jobs=n_jobs)
+    clf = DecisionTreeClassifier()
+    clf.fit(X_train, y_train)
 
-    y_pred = XGB.predict(X_test)
+    y_pred = clf.predict(X_test)
 
     scores = evaluate_metrics(y_test , y_pred)
     with open(scores_file, "w") as f:
@@ -80,7 +84,7 @@ def training_evaluation(config_path):
     os.makedirs(model_dir, exist_ok=True)
     model_path = os.path.join(model_dir, "model.joblib")
 
-    joblib.dump(XGB, model_path)
+    joblib.dump(clf, model_path)
 
     
 
